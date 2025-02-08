@@ -1,0 +1,6 @@
+fastapi[all]
+sqlalchemy
+alembic
+asyncpg
+pydantic-settings
+requests
