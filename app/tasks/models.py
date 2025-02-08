@@ -1,0 +1,23 @@
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship, Mapped, mapped_column
+
+from app.database import BaseTable, int_pk, str_null_true, int_null_true, date_null_true
+from app.employees.models import Employee
+
+
+# Create tasks table model
+class Task(BaseTable):
+    id: Mapped[int_pk]
+    name: Mapped[str]
+    parent_task: Mapped[int_null_true]
+    assignee: Mapped[int] = mapped_column(ForeignKey('employees.id'), nullable=True)
+    deadline: Mapped[date_null_true]
+    status: Mapped[str_null_true]
+
+    employee: Mapped['Employee'] = relationship('Employee', back_populates='tasks')
+
+    def __str__(self):
+        return f'{self.__class__.__name__}(id="{self.id}", name="{self.name!r}")'
+
+    def __repr__(self):
+        return str(self)
