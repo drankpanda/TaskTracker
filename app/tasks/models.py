@@ -13,7 +13,7 @@ class Task(BaseTable):
     id: Mapped[int_pk]
     name: Mapped[str]
     parent_task: Mapped[int_null_true]
-    assignee: Mapped[int] = mapped_column(ForeignKey('employees.id'), nullable=True)
+    employee_id: Mapped[int] = mapped_column(ForeignKey('employees.id'), nullable=True)
     deadline: Mapped[date_null_true]
     status: Mapped[str_null_true]
 
