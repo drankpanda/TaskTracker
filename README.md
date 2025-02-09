@@ -36,3 +36,16 @@ DB_PASSWORD=[ваш пароль]
 # ✅ Запуск проекта
 В процессе...
 
+[Полезные команды, применять по своему усмотрению]
+```bash
+alembic revision --autogenerate -m 'Your message'
+```
+```bash
+alembic upgrade head
+```
+```bash
+alembic downgrade'
+```
+```bash
+uvicorn app.main:app
+```
