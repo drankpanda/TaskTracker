@@ -3,6 +3,8 @@ from random import random
 
 from fastapi import FastAPI
 
+from app.tasks.router import router as tasks_router
+
 
 app = FastAPI()
 
@@ -13,3 +15,5 @@ def test_welcome_script(message: Optional[str] = 'Greetings!'):
         'random_number': int(random()*100),
         'message': message,
     }
+
+app.include_router(tasks_router)
