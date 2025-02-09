@@ -1,8 +1,11 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
 from app.database import BaseTable, int_pk, str_null_true, int_null_true, date_null_true
-from app.employees.models import Employee
+if TYPE_CHECKING:
+    from app.employees.models import Employee
 
 
 # Create tasks table model
@@ -14,6 +17,7 @@ class Task(BaseTable):
     deadline: Mapped[date_null_true]
     status: Mapped[str_null_true]
 
+    # One-to-many relationship: one employee can have multiple tasks
     employee: Mapped['Employee'] = relationship('Employee', back_populates='tasks')
 
     def __str__(self):
