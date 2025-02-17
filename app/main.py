@@ -4,6 +4,7 @@ from random import random
 from fastapi import FastAPI
 
 from app.tasks.router import router as tasks_router
+from app.employees.router import router as employees_router
 
 
 app = FastAPI()
@@ -17,3 +18,4 @@ def test_welcome_script(message: Optional[str] = 'Greetings!'):
     }
 
 app.include_router(tasks_router)
+app.include_router(employees_router)
