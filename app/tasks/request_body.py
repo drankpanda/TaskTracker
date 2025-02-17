@@ -17,8 +17,11 @@ class RBTask:
         self.status = status
 
     def to_dict(self) -> dict:
-        obj_data = {'id': self.id, 'name': self.name, 'parent_task': self.parent_task,
-                    'employee_id': self.employee_id, 'deadline': self.deadline, 'status': self.status}
+        obj_dict = {}
         # Need to create a copy (.items()) in order to exclude changes in runtime because of asynchronous work
-        not_none_obj_data = {key: value for key, value in obj_data.items() if value is not None}
-        return not_none_obj_data
+        for key, value in self.__dict__.items():
+            if value in ['None', 'none', 'NONE', 'Null', 'null', 'NULL']:
+                obj_dict[key] = None
+            elif value is not None:
+                obj_dict[key] = value
+        return obj_dict
