@@ -1,4 +1,4 @@
-"""Add one-to-many tasks in employee
+"""Assignee to employee_id in tasks
 
 Revision ID: 15d3692e7d7c
 Revises: 6b991e7b0098
