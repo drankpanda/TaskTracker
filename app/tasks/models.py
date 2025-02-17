@@ -25,3 +25,15 @@ class Task(BaseTable):
 
     def __repr__(self):
         return str(self)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'parent_task': self.parent_task,
+            'employee_id': self.employee_id,
+            'deadline': self.deadline,
+            'status': self.status,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+        }
