@@ -44,8 +44,11 @@ alembic revision --autogenerate -m 'Your message'
 alembic upgrade head
 ```
 ```bash
-alembic downgrade'
+alembic downgrade
 ```
 ```bash
 uvicorn app.main:app
+```
+```bash
+uvicorn app.main:app --reload
 ```
