@@ -1,0 +1,34 @@
+.dnd-container {
+    background-color: rgb(48, 48, 48);
+    margin: 1rem;
+    padding-block: 1rem;
+    padding-inline: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 16px;
+}
+
+.dnd-container>.name {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.draggable {
+    cursor: grab;
+}
+
+.dragging {
+    background-color: rgb(110, 110, 110);
+}
+
+.dragging * {
+    opacity: 0.85;
+    transition: all 0.2s linear;
+}
+
+.dropzone {
+    background-color: red;
+    position: relative;
+    padding: 0rem;
+    /* padding: 1rem; */
+    /* content-visibility: hidden; */
+}

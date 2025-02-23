@@ -2,10 +2,12 @@ from typing import Optional
 from random import random
 
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 from app.tasks.router import router as tasks_router
 from app.employees.router import router as employees_router
+from app.pages.router import router as pages_router
 
 
 app: FastAPI = FastAPI()
@@ -28,3 +30,5 @@ def get_favicon():
 
 app.include_router(tasks_router)
 app.include_router(employees_router)
+app.include_router(pages_router)
+app.mount('/static', StaticFiles(directory='app/static'), 'static')

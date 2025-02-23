@@ -1,0 +1,80 @@
+.task {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 2rem 1fr;
+    width: 60%;
+    font-size: 20px;
+    background-color: rgb(96, 96, 96);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 8px;
+    transition: transform 0.25s;
+}
+
+.task:hover {
+    transform: translateY(-0.25rem);
+}
+
+.task .half-transparent {
+    opacity: 0.5;
+}
+
+.task>.top-bar {
+    grid-column: 1/13;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task>.top-bar .edit-btn,
+.task>.top-bar .delete-btn {
+    width: 2rem;
+    height: 2rem;
+}
+
+.task>.general-info {
+    grid-column: 1/5;
+    grid-row: 2;
+    text-align: left;
+}
+
+.task>.general-info .additional {
+    font-size: 0.8rem;
+}
+
+.task>.content {
+    grid-column: 5/9;
+    grid-row: 2;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.task>.meta-info {
+    grid-column: 9/13;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.task>.meta-info .deadline {
+    font-size: 0.8rem;
+}
+
+.task>.meta-info>.meta-time {
+    display: flex;
+    height: 100%;
+}
+
+.task>.meta-info>.meta-time div {
+    align-self: flex-end;
+    width: 100%;
+}
+
+.task>.meta-info>.meta-time p {
+    font-size: 0.6rem;
+    text-align: right;
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type='text/css' href="/static/styles/style.css">
+    <link rel="stylesheet" type='text/css' href="/static/styles/tasks.css">
+    <link rel="stylesheet" type='text/css' href="/static/styles/drag-n-drop.css">
+    <title>Задачи</title>
+</head>
+
+<body>
+    <div class="dnd-container move">
+        <h2 class="name">Список задач</h2>
+        {% for task in tasks %}
+        <div class="task draggable" draggable="true">
+            <div class="top-bar">
+                <button class="edit-btn">✏️</button>
+                <button class="delete-btn">🗑️</button>
+            </div>
+            <div class="general-info">
+                <h3 class="name">{{ task.name }} <span class="half-transparent">(ID: {{ task.id }})</span></h3>
+                <p class="additional half-transparent">ID родительской задачи: {% if task.parent_task %} {{ task.parent_task }} {% else %} - {% endif %}</p>
+                <p class="additional half-transparent">Испольнитель: {% if task.employee_id %} {{ task.employee }} (ID: {{ task.employee_id }}) {% else %} - {% endif %}</p>
+                <p class="half-transparent">филлер</p>
+                <p class="half-transparent">филлер</p>
+                <p class="half-transparent">филлер</p>
+                <p class="half-transparent">филлер</p>
+            </div>
+            <div class="content">Тут могло бы быть описание...</div>
+            <div class="meta-info">
+                <p class="status">Статус: {% if task.statuc %} {{ task.status }} {% else %} - {% endif %}</p>
+                <p class="deadline half-transparent">Дедлайн: {% if task.deadline %} {{ task.deadline }} {% else %} - {% endif%}</p>
+                <div class="meta-time">
+                    <div class="half-transparent">
+                        <p class="created-at">Дата создания: {{ task.created_at.strftime('%d-%m-%Y %H:%M:%S') }}</p>
+                        <p class="updated-at">Изменено: {{ task.updated_at.strftime('%d-%m-%Y %H:%M:%S') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dropzone">dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone</div>
+        {% endfor %}
+    </div>
+
+    <div class="dnd-container">
+        <h2 class="name">Тестовый контейнер</h2>
+        <div class="dropzone">dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone</div>
+    </div>
+
+    <script src="/static/scripts/drag-n-drop.js"></script>
+</body>
+</html>
