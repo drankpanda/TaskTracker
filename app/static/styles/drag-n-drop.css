@@ -1,15 +1,12 @@
 .dnd-container {
+    width: fit-content;
     background-color: rgb(48, 48, 48);
-    margin: 1rem;
-    padding-block: 1rem;
-    padding-inline: 2rem;
+    margin: min(1rem, 3%);
+    padding-block: min(1rem, 2vw);
+    padding-inline: min(2rem, 3vw);
     border-radius: 12px;
     box-shadow: 0 0 16px;
-}
-
-.dnd-container>.name {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    --task-padding: min(1rem, 2vw);
 }
 
 .draggable {
@@ -26,9 +23,9 @@
 }
 
 .dropzone {
-    background-color: red;
+    /* background-color: red; */
     position: relative;
     padding: 0rem;
-    /* padding: 1rem; */
-    /* content-visibility: hidden; */
+    padding: 1rem;
+    content-visibility: hidden;
 }

@@ -12,12 +12,15 @@
 
 <body>
     <div class="dnd-container move">
-        <h2 class="name">Список задач</h2>
+        <div class="top-bar">
+            <h2 class="name">Список задач</h2>
+            <button class="add-btn"><span>➕</span></button>
+        </div>
         {% for task in tasks %}
         <div class="task draggable" draggable="true">
             <div class="top-bar">
-                <button class="edit-btn">✏️</button>
-                <button class="delete-btn">🗑️</button>
+                <button class="edit-btn"><span>✏️</span></button>
+                <button class="delete-btn"><span>🗑️</span></button>
             </div>
             <div class="general-info">
                 <h3 class="name">{{ task.name }} <span class="half-transparent">(ID: {{ task.id }})</span></h3>
