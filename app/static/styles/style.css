@@ -1,3 +1,7 @@
+:root {
+    --task-padding: min(1rem, 2vw);
+}
+
 * {
     margin: 0;
     padding: 0;

@@ -6,7 +6,6 @@
     padding-inline: min(2rem, 3vw);
     border-radius: 12px;
     box-shadow: 0 0 16px;
-    --task-padding: min(1rem, 2vw);
 }
 
 .draggable {
