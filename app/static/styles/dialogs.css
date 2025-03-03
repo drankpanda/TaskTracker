@@ -1,0 +1,52 @@
+.blur-outside-area.enabled {
+    opacity: 1.0;
+    pointer-events: all;
+}
+
+.blur-outside-area {
+    opacity: 0.0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+}
+
+.add-task-dialog {
+    display: table;
+    background-color: rgb(96, 96, 96);
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    padding: var(--task-padding);
+    border-radius: 12px;
+    box-shadow: 0 0 16px;
+}
+
+.dialog-row {
+    display: table-row;
+}
+
+.dialog-row>label,
+.dialog-row>input,
+.dialog-row>select,
+.dialog-row>div {
+    display: table-cell;
+}
+
+.dialog-row>input,
+.dialog-row>select {
+    width: min(340px, 50vw);
+    box-sizing: border-box;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.dialog-row>label,
+.dialog-btns {
+    text-align: right;
+}
