@@ -58,13 +58,16 @@
     <div class="dnd-container move">
         <div class="top-bar">
             <h2 class="name">Список задач</h2>
-            <button class="add-btn"><span>➕</span></button>
+            <div class="btns">
+                <button class="delete-btn" id="toggle-delete-mode"><span>🗑️</span></button>
+                <button class="edit-btn" id="toggle-edit-mode"><span>✏️</span></button>
+                <button class="add-btn" id="open-add-task-dialog"><span>➕</span></button>
+            </div>
         </div>
         {% for task in tasks %}
         <div class="task draggable" draggable="true">
             <div class="top-bar">
-                <button class="edit-btn"><span>✏️</span></button>
-                <button class="delete-btn"><span>🗑️</span></button>
+                <!-- Place for "edited" msg and deletion checkbox -->
             </div>
             <div class="general-info">
                 <h3 class="name">{{ task.name }} <span class="half-transparent">(ID: {{ task.id }})</span></h3>

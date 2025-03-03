@@ -1,0 +1,63 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar>.btns {
+    width: fit-content;
+}
+
+.top-bar button {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.75;
+    border-radius: 0.25rem;
+    transition: background-color 0.25s, opacity 0.25s;
+}
+
+.top-bar button:hover {
+    opacity: 0.50;
+    cursor: pointer;
+}
+
+.top-bar button span {
+    background-clip: text;
+    color: transparent;
+}
+
+.top-bar .add-btn {
+    background-color: rgb(0, 128, 0);
+}
+
+.top-bar .add-btn span {
+    background-color: rgb(0, 108, 0);
+}
+
+.top-bar .add-btn:hover {
+    background-color: rgb(0, 138, 0);
+}
+
+.top-bar .edit-btn {
+    background-color: rgb(45, 100, 180);
+}
+
+.top-bar .edit-btn span {
+    background-color: rgb(25, 80, 160);
+}
+
+.top-bar .edit-btn:hover {
+    background-color: rgb(55, 110, 190);
+}
+
+.top-bar .delete-btn {
+    background-color: rgb(180, 40, 40);
+}
+
+.top-bar .delete-btn span {
+    background-color: rgb(160, 20, 20);
+}
+
+.top-bar .delete-btn:hover {
+    background-color: rgb(190, 50, 50);
+}

@@ -8,6 +8,15 @@
     box-shadow: 0 0 16px;
 }
 
+.dnd-container>.top-bar {
+    padding-right: var(--task-padding);
+    margin-bottom: 1rem;
+}
+
+.dnd-container>.top-bar h2 {
+    font-size: 1.5rem;
+}
+
 .draggable {
     cursor: grab;
 }
