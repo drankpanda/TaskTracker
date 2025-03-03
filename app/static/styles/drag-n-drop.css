@@ -23,11 +23,12 @@
 
 .dragging {
     background-color: rgb(110, 110, 110);
+    transition: background-color 0.2s linear;
 }
 
 .dragging * {
     opacity: 0.85;
-    transition: all 0.2s linear;
+    transition: opacity 0.2s linear;
 }
 
 .dropzone {
