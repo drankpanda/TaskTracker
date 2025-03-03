@@ -8,7 +8,6 @@
     padding: var(--task-padding);
     border-radius: 12px;
     box-shadow: 0 0 8px;
-    transition: transform 0.25s;
 }
 
 .task:hover {

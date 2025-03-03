@@ -19,16 +19,11 @@
 
 .draggable {
     cursor: grab;
+    transition: background-color 0.2s linear, transform 0.25s;
 }
 
 .dragging {
-    background-color: rgb(110, 110, 110);
-    transition: background-color 0.2s linear;
-}
-
-.dragging * {
-    opacity: 0.85;
-    transition: opacity 0.2s linear;
+    background-color: rgb(120, 120, 120);
 }
 
 .dropzone {
