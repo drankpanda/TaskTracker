@@ -1,37 +1,3 @@
-const draggables = document.querySelectorAll(".draggable")
-const dndContainers = document.querySelectorAll(".dnd-container")
-let ghostEl;
-
-draggables.forEach((draggable) => {
-    draggable.addEventListener("dragstart", (ev) => {
-        ev.dataTransfer.effectAllowed = "move";
-        draggable.classList.add("dragging");
-    });
-
-    draggable.addEventListener("dragend", (ev) => {
-        ev.preventDefault();
-        draggable.classList.remove("dragging");
-    });
-});
-
-dndContainers.forEach((container) => {
-    if (container.classList.contains("move")) {
-        container.addEventListener("dragover", (ev) => {
-            ev.preventDefault();
-            ev.dataTransfer.dropEffect = "move";
-    
-            const dragging = document.querySelector(".dragging");
-            const dropTarget = getDropTarget(container, ev.clientX, ev.clientY);
-    
-            if (dropTarget) {
-                swapNodes(dragging, dropTarget);
-            } else if (!container.querySelector(".draggable:not(.dragging)")) {
-                container.appendChild(dragging);
-            }
-        });
-    }
-});
-
 function getDropTarget(container, x, y) {
     const draggables = [...container.querySelectorAll(".draggable:not(.dragging)")];
 
@@ -72,3 +38,43 @@ function swapNodes(n1, n2) {
     p1.insertBefore(n2, p1.children[i1]);
     p2.insertBefore(n1, p2.children[i2]);
 }
+
+function dragStart(ev) {
+    ev.dataTransfer.effectAllowed = "move";
+    this.classList.add("dragging");
+}
+
+function dragEnd(ev) {
+    ev.preventDefault();
+    this.classList.remove("dragging");
+}
+
+function dragOver(ev) {
+    ev.preventDefault();
+    console.log(ev);
+    console.log(this);
+    ev.dataTransfer.dropEffect = "move";
+
+    const dragging = document.querySelector(".dragging");
+    const dropTarget = getDropTarget(this, ev.clientX, ev.clientY);
+
+    if (dropTarget) {
+        swapNodes(dragging, dropTarget);
+    } else if (!this.querySelector(".draggable:not(.dragging)")) {
+        this.appendChild(dragging);
+    }
+}
+
+const draggables = document.querySelectorAll(".draggable")
+const dndContainers = document.querySelectorAll(".dnd-container")
+
+draggables.forEach((draggable) => {
+    draggable.addEventListener("dragstart", dragStart);
+    draggable.addEventListener("dragend", dragEnd);
+});
+
+dndContainers.forEach((container) => {
+    if (container.classList.contains("move")) {
+        container.addEventListener("dragover", dragOver);
+    }
+});
