@@ -41,27 +41,25 @@ function swapNodes(n1, n2) {
 
 function dragStart(ev) {
     ev.dataTransfer.effectAllowed = "move";
-    this.classList.add("dragging");
+    ev.target.classList.add("dragging");
 }
 
 function dragEnd(ev) {
     ev.preventDefault();
-    this.classList.remove("dragging");
+    ev.target.classList.remove("dragging");
 }
 
 function dragOver(ev) {
     ev.preventDefault();
-    console.log(ev);
-    console.log(this);
     ev.dataTransfer.dropEffect = "move";
 
     const dragging = document.querySelector(".dragging");
-    const dropTarget = getDropTarget(this, ev.clientX, ev.clientY);
+    const dropTarget = getDropTarget(ev.currentTarget, ev.clientX, ev.clientY);
 
     if (dropTarget) {
         swapNodes(dragging, dropTarget);
-    } else if (!this.querySelector(".draggable:not(.dragging)")) {
-        this.appendChild(dragging);
+    } else if (!ev.currentTarget.querySelector(".draggable:not(.dragging)")) {
+        ev.currentTarget.appendChild(dragging);
     }
 }
 
