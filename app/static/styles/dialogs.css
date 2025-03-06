@@ -27,6 +27,10 @@
     box-shadow: 0 0 16px;
 }
 
+.add-task-dialog *:not(label) {
+    color: black;
+}
+
 .dialog-row {
     display: table-row;
 }
