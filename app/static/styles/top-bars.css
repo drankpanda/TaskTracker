@@ -5,13 +5,15 @@
 }
 
 .top-bar>.btns {
+    display: flex;
     width: fit-content;
+    align-items: center;
+    gap: 0.6rem;
 }
 
 .top-bar button {
     width: 2rem;
     height: 2rem;
-    opacity: 0.75;
     border-radius: 0.25rem;
     transition: background-color 0.25s, opacity 0.25s;
 }
@@ -21,9 +23,21 @@
     cursor: pointer;
 }
 
+.top-bar button:disabled {
+    pointer-events: none;
+}
+
 .top-bar button span {
     background-clip: text;
     color: transparent;
+}
+
+.top-bar .apply-btn {
+    display: none;
+    width: fit-content;
+    min-height: 2rem;
+    height: 100%;
+    padding: 0.2rem;
 }
 
 .top-bar .add-btn {

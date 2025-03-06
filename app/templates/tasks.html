@@ -8,11 +8,14 @@
     <link rel="stylesheet" type="text/css" href="/static/styles/top-bars.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/tasks.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/drag-n-drop.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/edit-mode.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/delete-mode.css">
     <link rel="stylesheet" type="text/css" href="/static/styles/dialogs.css">
     <title>Задачи</title>
 </head>
 
 <body>
+    <span id="editting-mode"></span>
     <div class="blur-outside-area" id="add-dialog-blur">
         <form action="" method="post" class="add-task-dialog">
             <div class="dialog-row">
@@ -59,6 +62,7 @@
         <div class="top-bar">
             <h2 class="name">Список задач</h2>
             <div class="btns">
+                <button class="apply-btn" id="apply-changes"></button>
                 <button class="delete-btn" id="toggle-delete-mode"><span>🗑️</span></button>
                 <button class="edit-btn" id="toggle-edit-mode"><span>✏️</span></button>
                 <button class="add-btn" id="open-add-task-dialog"><span>➕</span></button>
@@ -99,7 +103,7 @@
         <div class="dropzone">dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone</div>
     </div>
 
-    <script src="/static/scripts/dialogs_handlers.js"></script>
+    <script src="/static/scripts/tasks_btns_handlers.js"></script>
     <script src="/static/scripts/drag-n-drop.js"></script>
 </body>
 </html>
