@@ -2,12 +2,13 @@
 .task {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: fit-content 1fr;
-    width: min(1000px, max-content);
+    grid-template-rows: fit-content(10%) 1fr;
+    width: min(1000px, 100%);
     background-color: rgb(96, 96, 96);
     padding: var(--task-padding);
     border-radius: 12px;
     box-shadow: 0 0 8px;
+    box-sizing: border-box;
 }
 
 .task:hover {

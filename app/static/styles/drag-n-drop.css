@@ -10,7 +10,6 @@
 
 .dnd-container>.top-bar {
     padding-right: var(--task-padding);
-    margin-bottom: 1rem;
 }
 
 .dnd-container>.top-bar h2 {
