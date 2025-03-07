@@ -1,0 +1,12 @@
+{% block dnd_container %}
+    <div class="dnd-container {% if dnd_type -%} {{ dnd_type }} {%- endif %}">
+        <div class="top-bar">
+            {% filter indent(width=8, first=True) %}
+                {% block top_bar %}{% endblock %}
+            {% endfilter %}
+        </div>
+        {% filter indent(width=4, first=True) %}
+            {% block dragzone %}{% endblock %}
+        {% endfilter %}
+    </div>
+{% endblock dnd_container %}

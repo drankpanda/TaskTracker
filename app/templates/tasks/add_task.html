@@ -1,0 +1,41 @@
+<div class="blur-outside-area" id="add-dialog-blur">
+    <form action="" method="post" class="add-task-dialog">
+        <div class="dialog-row">
+            <label for="dialog-task-name">Название:</label>
+            <input id="dialog-task-name" type="text" placeholder="Название задачи" required />
+        </div>
+        <div class="dialog-row">
+            <label for="dialog-task-parent">Родительская задача:</label>
+            <select id="dialog-task-parent">
+                <option value="">Отсутствует</option>
+                {% for task in tasks %}
+                <option value="{{ task.id }}">{{ task.name }} (ID: {{ task.id }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="dialog-row">
+            <label for="dialog-task-employee">Испольнитель:</label>
+            <select id="dialog-task-employee">
+                <option value="">Отсутствует</option>
+                {% for employee in employees %}
+                <option value="{{ employee.id }}">{{ employee.first_name }} {{ employee.last_name}} (ID: {{ employee.id }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="dialog-row">
+            <label for="dialog-task-deadline">Дедлайн:</label>
+            <input id="dialog-task-deadline" type="date" placeholder="Дедлайн" />
+        </div>
+        <div class="dialog-row">
+            <label for="dialog-task-status">Статус:</label>
+            <input id="dialog-task-status" type="text" placeholder="Статус" />
+        </div>
+        <div class="dialog-row">
+            <div class="empty-cell"></div>
+            <div class="dialog-btns">
+                <input type="submit" value="Добавить" class="add-btn" />
+                <button class="cancel-add-btn" id="close-add-task-dialog">Закрыть</button>
+            </div>
+        </div>
+    </form>
+</div>

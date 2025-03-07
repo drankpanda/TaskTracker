@@ -1,0 +1,45 @@
+{% extends "drag-n-drop/dnd_container.html" %}
+
+{% set dnd_type = "move" %}
+
+{% block top_bar %}
+    <h2 class="name">Список задач</h2>
+    <div class="btns">
+        <button class="apply-btn" id="apply-changes"></button>
+        <button class="delete-btn" id="toggle-delete-mode"><span>🗑️</span></button>
+        <button class="edit-btn" id="toggle-edit-mode"><span>✏️</span></button>
+        <button class="add-btn" id="open-add-task-dialog"><span>➕</span></button>
+    </div>
+{% endblock top_bar %}
+
+{% block dragzone %}
+    <div class="dropzone move"></div>
+    {% for task in tasks %}
+    <div class="task draggable" draggable="true">
+        <div class="top-bar">
+            <!-- Place for "edited" msg and deletion checkbox -->
+        </div>
+        <div class="general-info">
+            <h3 class="name">{{ task.name }} <span class="half-transparent">(ID: {{ task.id }})</span></h3>
+            <p class="additional half-transparent">ID родительской задачи: {% if task.parent_task %} {{ task.parent_task }} {% else %} - {% endif %}</p>
+            <p class="additional half-transparent">Испольнитель: {% if task.employee_id %} {{ task.employee }} (ID: {{ task.employee_id }}) {% else %} - {% endif %}</p>
+            <p class="half-transparent">филлер</p>
+            <p class="half-transparent">филлер</p>
+            <p class="half-transparent">филлер</p>
+            <p class="half-transparent">филлер</p>
+        </div>
+        <div class="content">Тут могло бы быть описание...</div>
+        <div class="meta-info">
+            <p class="status">Статус: {% if task.statuc %} {{ task.status }} {% else %} - {% endif %}</p>
+            <p class="deadline half-transparent">Дедлайн: {% if task.deadline %} {{ task.deadline }} {% else %} - {% endif%}</p>
+            <div class="meta-time">
+                <div class="half-transparent">
+                    <p class="created-at">Дата создания: {{ task.created_at.strftime('%d-%m-%Y %H:%M:%S') }}</p>
+                    <p class="updated-at">Изменено: {{ task.updated_at.strftime('%d-%m-%Y %H:%M:%S') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dropzone move"></div>
+    {% endfor %}
+{% endblock dragzone %}
