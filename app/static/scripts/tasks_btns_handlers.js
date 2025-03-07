@@ -3,6 +3,7 @@ let openAddDialogBtn = document.getElementById("open-add-task-dialog");
 let closeAddDialogBtn = document.getElementById("close-add-task-dialog")
 let addDialog = document.getElementById("add-dialog-blur");
 
+// For the future: can be done with html popover
 openAddDialogBtn.addEventListener("click", () => {
     addDialog.classList.add("enabled");
 });
