@@ -68,6 +68,7 @@
                 <button class="add-btn" id="open-add-task-dialog"><span>➕</span></button>
             </div>
         </div>
+        <div class="dropzone move"></div>
         {% for task in tasks %}
         <div class="task draggable" draggable="true">
             <div class="top-bar">
@@ -94,16 +95,17 @@
                 </div>
             </div>
         </div>
-        <div class="dropzone">dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone</div>
+        <div class="dropzone move"></div>
         {% endfor %}
     </div>
 
     <div class="dnd-container">
         <h2 class="name">Тестовый контейнер</h2>
-        <div class="dropzone">dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone-dropzone</div>
+        <div class="dropzone"></div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/static/scripts/tasks_btns_handlers.js"></script>
-    <script src="/static/scripts/drag-n-drop.js"></script>
+    <script src="/static/scripts/drag-n-drop-v2.js"></script>
 </body>
 </html>

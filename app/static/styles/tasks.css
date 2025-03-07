@@ -1,4 +1,16 @@
 /* Whole task */
+@keyframes slideFromLeft {
+    from {
+        opacity: 0.0;
+        transform: translateX(calc(-1 * min(2rem, 3vw)));
+    }
+
+    to {
+        opacity: 1.0;
+        transform: translateX(0);
+    }
+}
+
 .task {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -9,6 +21,8 @@
     border-radius: 12px;
     box-shadow: 0 0 8px;
     box-sizing: border-box;
+    position: relative;
+    animation: 0.4s 0.2s 1 backwards slideFromLeft;
 }
 
 .task:hover {
