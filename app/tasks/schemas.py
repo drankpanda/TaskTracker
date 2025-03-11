@@ -3,11 +3,17 @@ from typing import Optional
 from pydantic import BaseModel, Field, ConfigDict
 
 
+class STaskLink(BaseModel):
+    id: int
+    name: str = Field(..., description='Name of the task')
+
+
 class STask(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: int
     name: str = Field(..., description='Name of the task')
-    parent_task: Optional[int] = Field(None, description='ID of the parent task')
+    parent_tasks: Optional[list[STaskLink]] = Field(None, description='IDs and names of the parent tasks')
+    child_tasks: Optional[list[STaskLink]] = Field(None, description='IDs and names of the child tasks')
     employee_id: Optional[int] = Field(None, description='ID of the assignee')
     employee: Optional[str] = Field(None, description='Full name of the assignee')
     deadline: Optional[date] = Field(None, description='Expiration date of the task')
