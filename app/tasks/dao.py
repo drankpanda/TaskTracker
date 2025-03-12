@@ -1,6 +1,7 @@
 from typing import Optional
 
 from sqlalchemy import select, and_, Select
+from sqlalchemy.exc import MultipleResultsFound
 from sqlalchemy.orm import joinedload, selectinload
 
 from app.dao.base import BaseDAO
@@ -25,7 +26,11 @@ class TaskDAO(BaseDAO):
             )
             query = await cls._family_filter(query, **filter_by)
             result = await session.execute(query)
-            task = result.scalar_one_or_none()
+            try:
+                task = result.scalar_one_or_none()
+            except MultipleResultsFound:
+                return {'message': 'Multiple rows were found when one or none was required with given filters',
+                        'filters': {**filter_by}}
 
             if task is None:
                 return None
