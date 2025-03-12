@@ -7,15 +7,15 @@ class RBTask:
                  name: Optional[str] = None,
                  parent_tasks: Optional[str] = None,
                  child_tasks: Optional[str] = None,
-                 employee_id: Optional[int] = None,
-                 deadline: Optional[date] = None,
+                 employee_id: Optional[Union[int, str]] = None,
+                 deadline: Optional[Union[date, str]] = None,
                  status: Optional[str] = None):
         self.id: Optional[int] = task_id
         self.name: Optional[str] = name
         self.parent_tasks: Optional[Union[list[int], str]] = self.__to_list(parent_tasks)
         self.child_tasks: Optional[Union[list[int], str]] = self.__to_list(child_tasks)
-        self.employee_id: Optional[int] = employee_id
-        self.deadline: Optional[date] = deadline
+        self.employee_id: Optional[Union[int, str]] = employee_id
+        self.deadline: Optional[Union[date, str]] = deadline
         self.status: Optional[str] = status
 
     def to_dict(self) -> dict:
